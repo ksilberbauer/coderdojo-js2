@@ -14,22 +14,6 @@
     <input type="text" placeholder="I need to..." onkeyup="addTodo(event);" />
   </ul>
   
-  <script>
-    var ENTER = 13;
-
-    function addTodo(event) {
-      
-      var todoInput = event.target;
-      var newTodoText = todoInput.value.trim();
-      
-      if (event.which == ENTER && newTodoText != "") {
-        todoInput.value = "";
-        var newTodoItem = document.createElement('li');
-        newTodoItem.innerHTML = newTodoText;
-        var todoList = document.getElementById('todoList');
-        todoList.insertBefore(newTodoItem, todoInput);
-      }      
-    }
-  </script>
+  <script src="script.js"></script>
 </body>
-</html>`
+</html>
