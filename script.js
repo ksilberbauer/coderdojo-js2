@@ -14,9 +14,14 @@ function addTodo(event) {
 
     var deleteButton = document.createElement('button');
     deleteButton.innerHTML = 'X';
+    deleteButton.onclick = deleteTodo;
     newTodoItem.appendChild(deleteButton);
 
     var todoList = document.getElementById('todoList');
     todoList.insertBefore(newTodoItem, todoInput);
   }      
+}
+
+function deleteTodo() {
+  this.parentElement.remove();
 }
