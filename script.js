@@ -8,10 +8,15 @@ function addTodo(event) {
   
   if (event.which == ENTER && newTodoText != "") {
     todoInput.value = "";
+    
     var newTodoItem = document.createElement('li');
     newTodoItem.innerHTML = newTodoText;
+
+    var deleteButton = document.createElement('button');
+    deleteButton.innerHTML = 'X';
+    newTodoItem.appendChild(deleteButton);
+
     var todoList = document.getElementById('todoList');
     todoList.insertBefore(newTodoItem, todoInput);
   }      
 }
-  
