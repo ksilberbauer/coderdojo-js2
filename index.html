@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>TODO List</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+  <h1>TODO:</h1>
+
+  <ul id="todoList">
+    <input type="text" placeholder="I need to..." onkeyup="addTodo(event);" />
+  </ul>
+  
+  <script>
+    var ENTER = 13;
+
+    function addTodo(event) {
+      
+      var todoInput = event.target;
+      var newTodoText = todoInput.value.trim();
+      
+      if (event.which == ENTER && newTodoText != "") {
+        todoInput.value = "";
+        var newTodoItem = document.createElement('li');
+        newTodoItem.innerHTML = newTodoText;
+        var todoList = document.getElementById('todoList');
+        todoList.insertBefore(newTodoItem, todoInput);
+      }      
+    }
+  </script>
+</body>
+</html>`
