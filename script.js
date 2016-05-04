@@ -10,7 +10,9 @@ function addTodo(event) {
     todoInput.value = "";
     
     var newTodoItem = document.createElement('li');
-    newTodoItem.innerHTML = newTodoText;
+    var newTodo = document.createElement('span');
+    newTodo.innerHTML = newTodoText;
+    newTodoItem.appendChild(newTodo);
 
     var deleteButton = document.createElement('button');
     deleteButton.innerHTML = 'X';
@@ -24,4 +26,17 @@ function addTodo(event) {
 
 function deleteTodo() {
   this.parentElement.remove();
+}
+
+function saveTodos() {
+  var todoList = document.getElementById('todoList');
+  var todoItems = todoList.getElementsByTagName('li');
+  var allTodos = [];
+  for (var i = 0; i < todoItems.length; i++) {
+    var todo = todoItems[i].getElementsByTagName('span')[0];
+    var todoText = todo.innerHTML;
+    allTodos.push(todoText);
+  }
+  var todos = allTodos.join(',');
+  window.localStorage.setItem('todos', todos);
 }
