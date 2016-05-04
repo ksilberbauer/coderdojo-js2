@@ -1,27 +1,30 @@
 
 var ENTER = 13;
 
-function addTodo(event) {
-  
+function handleAdd(event) {
   var todoInput = event.target;
   var newTodoText = todoInput.value.trim();
-  
+
   if (event.which == ENTER && newTodoText != "") {
+    addTodo(newTodoText);
     todoInput.value = "";
-    
-    var newTodoItem = document.createElement('li');
-    var newTodo = document.createElement('span');
-    newTodo.innerHTML = newTodoText;
-    newTodoItem.appendChild(newTodo);
+  }
+}
 
-    var deleteButton = document.createElement('button');
-    deleteButton.innerHTML = 'X';
-    deleteButton.onclick = deleteTodo;
-    newTodoItem.appendChild(deleteButton);
+function addTodo(todoText) {
+  var newTodoItem = document.createElement('li');
+  var newTodo = document.createElement('span');
+  newTodo.innerHTML = todoText;
+  newTodoItem.appendChild(newTodo);
 
-    var todoList = document.getElementById('todoList');
-    todoList.insertBefore(newTodoItem, todoInput);
-  }      
+  var deleteButton = document.createElement('button');
+  deleteButton.innerHTML = 'X';
+  deleteButton.onclick = deleteTodo;
+  newTodoItem.appendChild(deleteButton);
+
+  var todoList = document.getElementById('todoList');
+  var todoInput = document.getElementById('todoInput');
+  todoList.insertBefore(newTodoItem, todoInput);
 }
 
 function deleteTodo() {
