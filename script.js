@@ -43,3 +43,11 @@ function saveTodos() {
   var todos = allTodos.join(',');
   window.localStorage.setItem('todos', todos);
 }
+
+function loadTodos() {
+  var todos = window.localStorage.getItem('todos');
+  var allTodos = todos.split(',');
+  for (var i = 0; i < allTodos.length; i++) {
+    addTodo(allTodos[i]);
+  }
+}
